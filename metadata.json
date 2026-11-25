@@ -1,0 +1,6 @@
+{
+  "name": "Kite ILS",
+  "description": "Modern university digital library platform featuring real-time physical book discovery, reservations, spatial wayfinding, and digital resource access.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

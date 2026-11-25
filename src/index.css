@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Space Grotesk', 'Archivo Black', sans-serif;
+    --font-heading: 'Archivo Black', 'Space Grotesk', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --font-pixel: 'Press Start 2P', 'JetBrains Mono', monospace;
+
+    /* Palette */
+    --color-paper: #F5F0E6;
+    --color-paper-light: #FFFDF9;
+    --color-ink: #111111;
+    --color-electric-blue: #24A9C7;
+    --color-warm-yellow: #FFD83D;
+    --color-orange: #F26B32;
+    --color-purple: #7654D9;
+    --color-pink: #F05A79;
+    --color-green: #43C95E;
+
+    /* Retro Web 90s Palette */
+    --color-retro-bg: #100E2D;
+    --color-retro-grid: #25234A;
+    --color-retro-teal: #25C6B7;
+    --color-retro-orange: #FF7138;
+    --color-retro-purple: #7850C8;
+    --color-retro-cream: #F5E8C8;
+    --color-retro-dark: #17132D;
+    --color-retro-muted: #454879;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: #111111;
+    background-color: #F5F0E6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Typography Utility Classes */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.font-pixel {
+  font-family: var(--font-pixel);
+  letter-spacing: -0.05em;
+}
+
+/* Neo-Brutalist Hard Shadows */
+.shadow-brutal-xs {
+  box-shadow: 2px 2px 0 #111111;
+}
+
+.shadow-brutal {
+  box-shadow: 4px 4px 0 #111111;
+}
+
+.shadow-brutal-md {
+  box-shadow: 6px 6px 0 #111111;
+}
+
+.shadow-brutal-lg {
+  box-shadow: 8px 8px 0 #111111;
+}
+
+.shadow-brutal-xl {
+  box-shadow: 10px 10px 0 #111111;
+}
+
+.shadow-brutal-white {
+  box-shadow: 4px 4px 0 #ffffff;
+}
+
+.shadow-brutal-yellow {
+  box-shadow: 4px 4px 0 #FFD83D;
+}
+
+.shadow-brutal-orange {
+  box-shadow: 4px 4px 0 #F26B32;
+}
+
+.shadow-brutal-blue {
+  box-shadow: 4px 4px 0 #24A9C7;
+}
+
+/* Tactile Interactive Button States (Normal -> Hover shifts -> Pressed moves to shadow) */
+.btn-tactile {
+  border: 3px solid #111111;
+  box-shadow: 4px 4px 0 #111111;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  user-select: none;
+}
+
+.btn-tactile:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #111111;
+}
+
+.btn-tactile:active:not(:disabled) {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 #111111;
+}
+
+.card-tactile {
+  border: 3px solid #111111;
+  box-shadow: 6px 6px 0 #111111;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card-tactile-hover:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0 #111111;
+}
+
+/* Blueprint & Graph Paper Background Motifs */
+.bg-grid-paper {
+  background-image: 
+    linear-gradient(to right, rgba(17, 17, 17, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 17, 17, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-grid-blueprint {
+  background-color: #111111;
+  background-image: 
+    linear-gradient(to right, rgba(36, 169, 199, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(36, 169, 199, 0.25) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-dots-retro {
+  background-image: radial-gradient(rgba(17, 17, 17, 0.18) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+}
+
+/* Striped retro hazard / tape headers */
+.bg-stripes-warning {
+  background: repeating-linear-gradient(
+    -45deg,
+    #FFD83D,
+    #FFD83D 10px,
+    #111111 10px,
+    #111111 20px
+  );
+}
+
+.bg-stripes-orange {
+  background: repeating-linear-gradient(
+    -45deg,
+    #F26B32,
+    #F26B32 10px,
+    #111111 10px,
+    #111111 20px
+  );
+}
+
+/* Custom Neo-Brutalist scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F0E6;
+  border-left: 2px solid #111111;
+}
+::-webkit-scrollbar-thumb {
+  background: #111111;
+  border: 2px solid #F5F0E6;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F26B32;
+}
