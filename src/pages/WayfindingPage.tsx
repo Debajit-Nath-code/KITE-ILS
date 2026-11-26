@@ -326,7 +326,7 @@ export const WayfindingPage: React.FC = () => {
             </div>
 
             {/* Right: Retro Compass & Catalog Link */}
-            <div className="flex items-center gap-3 self-end lg:self-center">
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 self-stretch sm:self-end lg:self-center justify-between sm:justify-end">
               {/* Retro Pixel Compass */}
               <div className="flex items-center gap-2 bg-[#100E2D] px-3 py-1.5 border-2 border-[#7850C8]">
                 <div className="w-5 h-5 bg-[#7850C8] border border-[#100E2D] flex items-center justify-center text-[10px] text-[#F5E8C8] font-pixel font-bold">
@@ -341,7 +341,7 @@ export const WayfindingPage: React.FC = () => {
               <Link to="/discover">
                 <button
                   type="button"
-                  className="px-3 py-2 bg-[#25C6B7] text-[#100E2D] border-2 border-[#100E2D] shadow-[3px_3px_0px_#100E2D] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 font-pixel text-[9px] font-bold uppercase cursor-pointer"
+                  className="min-h-[44px] md:min-h-0 px-3 py-2 bg-[#25C6B7] text-[#100E2D] border-2 border-[#100E2D] shadow-[3px_3px_0px_#100E2D] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 font-pixel text-[9px] font-bold uppercase cursor-pointer"
                 >
                   ◄ CATALOG SEARCH
                 </button>
@@ -364,19 +364,19 @@ export const WayfindingPage: React.FC = () => {
           />
 
           {/* Quick Shelf Code Finder Form */}
-          <form onSubmit={handleSearchShelfSubmit} className="flex items-center gap-2">
-            <div className="relative">
+          <form onSubmit={handleSearchShelfSubmit} className="flex items-center gap-2 w-full md:w-auto">
+            <div className="relative flex-1 min-w-0 md:flex-initial">
               <input
                 type="text"
                 value={shelfSearchQuery}
                 onChange={(e) => setShelfSearchQuery(e.target.value)}
                 placeholder="SEARCH SHELF ID (CS-204, PHY-101)..."
-                className="w-72 h-10 px-3 bg-[#17132D] border-2 border-[#7850C8] text-[#F5E8C8] text-xs font-mono placeholder-[#F5E8C8]/40 focus:outline-none focus:border-[#25C6B7] shadow-[2px_2px_0px_#100E2D]"
+                className="w-full md:w-72 min-h-[44px] md:min-h-0 h-11 md:h-10 px-3 bg-[#17132D] border-2 border-[#7850C8] text-[#F5E8C8] text-xs font-mono placeholder-[#F5E8C8]/40 focus:outline-none focus:border-[#25C6B7] shadow-[2px_2px_0px_#100E2D]"
               />
             </div>
             <button
               type="submit"
-              className="h-10 px-4 bg-[#FF7138] text-[#100E2D] font-pixel text-[9px] font-bold uppercase border-2 border-[#100E2D] shadow-[2px_2px_0px_#100E2D] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 cursor-pointer"
+              className="min-h-[44px] md:min-h-0 h-11 md:h-10 px-3 sm:px-4 shrink-0 bg-[#FF7138] text-[#100E2D] font-pixel text-[9px] font-bold uppercase border-2 border-[#100E2D] shadow-[2px_2px_0px_#100E2D] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 cursor-pointer"
             >
               [ LOCATE ]
             </button>
@@ -468,7 +468,7 @@ export const WayfindingPage: React.FC = () => {
                       type="button"
                       onClick={() => handleSelectShelf(s)}
                       className={`
-                        p-2 border text-left text-xs transition-colors flex items-center justify-between cursor-pointer
+                        min-h-[44px] md:min-h-0 p-2 border text-left text-xs transition-colors flex items-center justify-between cursor-pointer
                         ${
                           isCurrent
                             ? 'bg-[#FF7138] text-[#100E2D] border-[#100E2D] font-bold shadow-[2px_2px_0px_#100E2D]'
@@ -488,20 +488,20 @@ export const WayfindingPage: React.FC = () => {
           {/* RIGHT 8 COLS: RETRO ARCHITECTURAL MAP CANVAS & CONTROLS */}
           <div className="lg:col-span-8 space-y-3">
             {/* Map Canvas Header Toolbar */}
-            <div className="flex items-center justify-between text-xs px-2 py-1 bg-[#17132D] border-2 border-[#25234A]">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-[#25C6B7]" />
-                <span className="font-pixel text-[8px] text-[#F5E8C8]">
+            <div className="flex flex-wrap items-center justify-between gap-2 text-xs px-2.5 py-2 md:px-2 md:py-1 bg-[#17132D] border-2 border-[#25234A]">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="w-2 h-2 bg-[#25C6B7] shrink-0" />
+                <span className="font-pixel text-[8px] text-[#F5E8C8] truncate">
                   CENTRAL_LIBRARY // FLOOR_0{activeFloor}
                 </span>
               </div>
 
               {/* Map Zoom & Controls Toolbar */}
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                 <button
                   type="button"
                   onClick={() => setZoomLevel((z) => Math.min(z + 0.15, 1.45))}
-                  className="px-2 py-1 bg-[#100E2D] hover:bg-[#7850C8] text-[#F5E8C8] border border-[#25234A] font-pixel text-[8px] flex items-center gap-1 cursor-pointer"
+                  className="min-h-[38px] md:min-h-0 px-2.5 md:px-2 py-1.5 md:py-1 bg-[#100E2D] hover:bg-[#7850C8] text-[#F5E8C8] border border-[#25234A] font-pixel text-[8px] flex items-center gap-1 cursor-pointer"
                   title="Zoom In"
                 >
                   <ZoomIn className="w-3 h-3 text-[#25C6B7]" />
@@ -510,7 +510,7 @@ export const WayfindingPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setZoomLevel((z) => Math.max(z - 0.15, 0.85))}
-                  className="px-2 py-1 bg-[#100E2D] hover:bg-[#7850C8] text-[#F5E8C8] border border-[#25234A] font-pixel text-[8px] flex items-center gap-1 cursor-pointer"
+                  className="min-h-[38px] md:min-h-0 px-2.5 md:px-2 py-1.5 md:py-1 bg-[#100E2D] hover:bg-[#7850C8] text-[#F5E8C8] border border-[#25234A] font-pixel text-[8px] flex items-center gap-1 cursor-pointer"
                   title="Zoom Out"
                 >
                   <ZoomOut className="w-3 h-3 text-[#FF7138]" />
@@ -519,7 +519,7 @@ export const WayfindingPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setZoomLevel(1)}
-                  className="px-2 py-1 bg-[#100E2D] hover:bg-[#7850C8] text-[#F5E8C8] border border-[#25234A] font-pixel text-[8px] flex items-center gap-1 cursor-pointer"
+                  className="min-h-[38px] md:min-h-0 px-2.5 md:px-2 py-1.5 md:py-1 bg-[#100E2D] hover:bg-[#7850C8] text-[#F5E8C8] border border-[#25234A] font-pixel text-[8px] flex items-center gap-1 cursor-pointer"
                   title="Reset Zoom"
                 >
                   <RotateCcw className="w-3 h-3 text-[#F5E8C8]" />
@@ -529,22 +529,24 @@ export const WayfindingPage: React.FC = () => {
             </div>
 
             {/* Scalable Interactive FloorPlan Container */}
-            <div 
-              className="transition-transform duration-200 origin-center"
-              style={{ transform: `scale(${zoomLevel})` }}
-            >
-              <FloorPlan
-                floor={activeFloor}
-                shelves={shelves}
-                landmarks={CENTRAL_LIBRARY_LANDMARKS}
-                destinationShelfId={selectedShelf.shelfId}
-                selectedPartitionId={selectedPartitionId}
-                route={route}
-                currentPosition={currentPosition}
-                isNavigating={isNavigating}
-                activeStepIndex={currentStepIndex}
-                onSelectShelf={handleSelectShelf}
-              />
+            <div className="overflow-hidden">
+              <div 
+                className="transition-transform duration-200 origin-center"
+                style={{ transform: `scale(${zoomLevel})` }}
+              >
+                <FloorPlan
+                  floor={activeFloor}
+                  shelves={shelves}
+                  landmarks={CENTRAL_LIBRARY_LANDMARKS}
+                  destinationShelfId={selectedShelf.shelfId}
+                  selectedPartitionId={selectedPartitionId}
+                  route={route}
+                  currentPosition={currentPosition}
+                  isNavigating={isNavigating}
+                  activeStepIndex={currentStepIndex}
+                  onSelectShelf={handleSelectShelf}
+                />
+              </div>
             </div>
 
             {/* Retro Console Status Footer */}

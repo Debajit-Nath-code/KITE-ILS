@@ -128,7 +128,7 @@ export const NavigationPanel: React.FC<NavigationPanelProps> = ({
                     type="button"
                     onClick={() => onSelectPartition && onSelectPartition(part)}
                     title={`${part.partitionId}: ${part.label || 'Shelf Bay'}`}
-                    className={`py-1.5 border-2 border-[#17132D] font-mono text-[10px] font-black transition-all cursor-pointer ${
+                    className={`min-h-[44px] md:min-h-0 py-1.5 border-2 border-[#17132D] font-mono text-[10px] font-black transition-all cursor-pointer ${
                       isPartActive
                         ? 'bg-[#25C6B7] text-[#100E2D] shadow-[2px_2px_0px_#17132D] -translate-y-0.5'
                         : 'bg-[#100E2D] text-[#F5E8C8] hover:bg-[#7850C8]'
@@ -217,14 +217,14 @@ export const NavigationPanel: React.FC<NavigationPanelProps> = ({
 
           {/* Floor Warning Notice if Step is on different floor */}
           {isNavigating && isFloorMismatch && (
-            <div className="p-3 bg-[#100E2D] text-[#F5E8C8] border-2 border-[#FF7138] flex items-center justify-between gap-2 shadow-[2px_2px_0px_#17132D]">
+            <div className="p-3 bg-[#100E2D] text-[#F5E8C8] border-2 border-[#FF7138] flex flex-wrap items-center justify-between gap-2 shadow-[2px_2px_0px_#17132D]">
               <div className="flex items-center gap-1.5 font-mono text-xs">
                 <span className="text-[#FF7138] font-bold">!</span>
                 <span>Next segment on <strong>Floor {currentStep.floor}</strong></span>
               </div>
               <button
                 type="button"
-                className="px-2 py-1 bg-[#25C6B7] text-[#100E2D] font-pixel text-[7px] uppercase font-bold border border-[#100E2D] hover:bg-white cursor-pointer"
+                className="min-h-[40px] md:min-h-0 px-2.5 md:px-2 py-1.5 md:py-1 bg-[#25C6B7] text-[#100E2D] font-pixel text-[7px] uppercase font-bold border border-[#100E2D] hover:bg-white cursor-pointer"
                 onClick={() => onSwitchFloor(currentStep.floor)}
               >
                 GOTO FL_{currentStep.floor}
@@ -248,7 +248,7 @@ export const NavigationPanel: React.FC<NavigationPanelProps> = ({
               <div className="flex items-center gap-2">
                 <button
                   type="button"
-                  className="w-1/2 h-10 bg-[#F5E8C8] text-[#100E2D] border-2 border-[#100E2D] shadow-[3px_3px_0px_#7850C8] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 font-pixel text-[8px] font-bold uppercase disabled:opacity-40 disabled:pointer-events-none cursor-pointer"
+                  className="w-1/2 min-h-[44px] md:min-h-0 h-11 md:h-10 bg-[#F5E8C8] text-[#100E2D] border-2 border-[#100E2D] shadow-[3px_3px_0px_#7850C8] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 font-pixel text-[8px] font-bold uppercase disabled:opacity-40 disabled:pointer-events-none cursor-pointer"
                   onClick={onPrevStep}
                   disabled={currentStepIndex === 0}
                 >
@@ -256,7 +256,7 @@ export const NavigationPanel: React.FC<NavigationPanelProps> = ({
                 </button>
                 <button
                   type="button"
-                  className="w-1/2 h-10 bg-[#FF7138] text-[#100E2D] border-2 border-[#100E2D] shadow-[3px_3px_0px_#F5E8C8] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 font-pixel text-[8px] font-bold uppercase disabled:opacity-40 disabled:pointer-events-none cursor-pointer"
+                  className="w-1/2 min-h-[44px] md:min-h-0 h-11 md:h-10 bg-[#FF7138] text-[#100E2D] border-2 border-[#100E2D] shadow-[3px_3px_0px_#F5E8C8] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 font-pixel text-[8px] font-bold uppercase disabled:opacity-40 disabled:pointer-events-none cursor-pointer"
                   onClick={onNextStep}
                   disabled={currentStepIndex === route.steps.length - 1}
                 >
@@ -264,10 +264,10 @@ export const NavigationPanel: React.FC<NavigationPanelProps> = ({
                 </button>
               </div>
 
-              <div className="flex items-center justify-between gap-2 pt-1">
+              <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
                 <button
                   type="button"
-                  className="px-2.5 py-1.5 bg-[#25C6B7] text-[#100E2D] font-pixel text-[7px] uppercase font-bold border border-[#100E2D] hover:bg-white cursor-pointer"
+                  className="min-h-[44px] md:min-h-0 px-3 md:px-2.5 py-2 md:py-1.5 bg-[#25C6B7] text-[#100E2D] font-pixel text-[7px] uppercase font-bold border border-[#100E2D] hover:bg-white cursor-pointer"
                   onClick={onToggleAutoWalk}
                 >
                   {isAutoWalking ? '❚❚ PAUSE AUTO' : '▶ AUTO WALK'}
@@ -275,7 +275,7 @@ export const NavigationPanel: React.FC<NavigationPanelProps> = ({
 
                 <button
                   type="button"
-                  className="px-2.5 py-1.5 bg-[#7850C8] text-[#F5E8C8] font-pixel text-[7px] uppercase font-bold border border-[#100E2D] hover:bg-[#FF7138] hover:text-[#100E2D] cursor-pointer"
+                  className="min-h-[44px] md:min-h-0 px-3 md:px-2.5 py-2 md:py-1.5 bg-[#7850C8] text-[#F5E8C8] font-pixel text-[7px] uppercase font-bold border border-[#100E2D] hover:bg-[#FF7138] hover:text-[#100E2D] cursor-pointer"
                   onClick={onStopNavigation}
                 >
                   [ RESET ROUTE ]

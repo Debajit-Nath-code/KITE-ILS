@@ -50,7 +50,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
               w-full h-11 px-3.5 
               ${leftIcon ? 'pl-10' : ''} 
               ${rightIcon ? 'pr-10' : ''} 
-              bg-white text-[#111111] text-sm font-medium
+              bg-white text-[#111111] text-base md:text-sm font-medium
               border-3 border-[#111111] rounded-none
               shadow-[3px_3px_0px_#111111]
               transition-all duration-100
@@ -111,8 +111,8 @@ export const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
           onChange={onChange}
           placeholder={placeholder}
           className={`
-            w-full h-11 pl-10 pr-16 
-            bg-white text-[#111111] text-sm font-medium
+            w-full h-11 pl-10 pr-14 sm:pr-16 
+            bg-white text-[#111111] text-base md:text-sm font-medium
             border-3 border-[#111111] rounded-none
             shadow-[3px_3px_0px_#111111]
             placeholder:text-[#111111]/40 
@@ -123,12 +123,12 @@ export const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
           `}
           {...props}
         />
-        <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1.5">
+        <div className="absolute right-1.5 sm:right-3 top-1/2 -translate-y-1/2 flex items-center gap-1.5">
           {hasValue && onClear && (
             <button
               type="button"
               onClick={onClear}
-              className="p-1 text-[#111111] hover:bg-[#FFD83D] border border-[#111111] transition-colors"
+              className="min-w-[38px] min-h-[38px] sm:min-w-0 sm:min-h-0 flex items-center justify-center p-1 text-[#111111] hover:bg-[#FFD83D] border border-[#111111] transition-colors"
               title="Clear search"
             >
               <X className="w-3.5 h-3.5" />
@@ -167,7 +167,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           ref={ref}
           id={selectId}
           className={`
-            w-full h-11 px-3 bg-white text-[#111111] text-sm font-medium
+            w-full h-11 px-3 bg-white text-[#111111] text-base md:text-sm font-medium
             border-3 border-[#111111] rounded-none shadow-[3px_3px_0px_#111111]
             transition-all duration-100
             hover:border-[#111111]
@@ -207,7 +207,7 @@ export function SegmentedControl<T extends string>({
   return (
     <div
       role="tablist"
-      className={`inline-flex items-center p-1 bg-[#111111] border-3 border-[#111111] shadow-[3px_3px_0px_#111111] gap-1 ${className}`}
+      className={`inline-flex max-w-full overflow-x-auto items-center p-1 bg-[#111111] border-3 border-[#111111] shadow-[3px_3px_0px_#111111] gap-1 ${className}`}
     >
       {options.map((option) => {
         const isActive = option.value === value;
@@ -219,7 +219,7 @@ export function SegmentedControl<T extends string>({
             aria-selected={isActive}
             onClick={() => onChange(option.value)}
             className={`
-              px-3 py-1.5 text-xs font-heading uppercase font-bold tracking-wider whitespace-nowrap transition-all duration-100
+              min-h-[44px] md:min-h-0 px-3 py-1.5 text-xs font-heading uppercase font-bold tracking-wider whitespace-nowrap shrink-0 transition-all duration-100
               ${
                 isActive
                   ? 'bg-[#FFD83D] text-[#111111] shadow-[2px_2px_0px_#111111]'

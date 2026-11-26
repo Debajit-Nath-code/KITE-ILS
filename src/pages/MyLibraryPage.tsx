@@ -83,7 +83,7 @@ export const MyLibraryPage: React.FC = () => {
       }
     >
       {loading ? (
-        <div className="bg-white rounded-xl border border-slate-200/80 p-6">
+        <div className="bg-white rounded-xl border border-slate-200/80 p-4 sm:p-6 overflow-x-auto">
           <table className="w-full">
             <tbody>
               <TableRowSkeleton />

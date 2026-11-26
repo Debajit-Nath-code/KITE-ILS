@@ -49,7 +49,7 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       {/* Toast Notification Container */}
       <div
         aria-live="polite"
-        className="fixed bottom-4 right-4 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none"
+        className="fixed bottom-3 left-3 right-3 sm:bottom-4 sm:left-auto sm:right-4 z-50 flex flex-col gap-2 sm:max-w-sm sm:w-full pointer-events-none"
       >
         {toasts.map((item) => (
           <ToastCard key={item.id} toast={item} onDismiss={() => removeToast(item.id)} />
@@ -104,10 +104,10 @@ const ToastCard: React.FC<{ toast: ToastMessage; onDismiss: () => void }> = ({
       <button
         type="button"
         onClick={onDismiss}
-        className="p-1 -mr-1 -mt-1 border border-[#111111] bg-white/30 hover:bg-white/60 text-current transition-colors cursor-pointer"
+        className="min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center p-2 sm:p-1 -mr-1 -mt-1 border border-[#111111] bg-white/30 hover:bg-white/60 text-current transition-colors cursor-pointer shrink-0"
         aria-label="Dismiss notification"
       >
-        <X className="w-3.5 h-3.5" />
+        <X className="w-4 h-4 sm:w-3.5 sm:h-3.5" />
       </button>
     </div>
   );

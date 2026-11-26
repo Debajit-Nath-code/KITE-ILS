@@ -55,7 +55,7 @@ export const ReaderSidebar: React.FC<ReaderSidebarProps> = ({
   };
 
   return (
-    <aside className="fixed inset-y-0 left-0 z-40 w-80 sm:w-96 bg-white dark:bg-slate-900 border-r border-slate-200/90 dark:border-slate-800 shadow-2xl flex flex-col select-none text-slate-900 dark:text-slate-100 transition-transform animate-in slide-in-from-left duration-200">
+    <aside className="fixed inset-y-0 left-0 z-40 w-[min(20rem,100vw)] sm:w-96 h-[100dvh] bg-white dark:bg-slate-900 border-r border-slate-200/90 dark:border-slate-800 shadow-2xl flex flex-col select-none text-slate-900 dark:text-slate-100 transition-transform animate-in slide-in-from-left duration-200">
       {/* Sidebar Header & Tab Bar */}
       <div className="p-4 border-b border-slate-200 dark:border-slate-800 shrink-0">
         <div className="flex items-center justify-between mb-3">
@@ -65,7 +65,8 @@ export const ReaderSidebar: React.FC<ReaderSidebarProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="p-1 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer"
+            aria-label="Close sidebar"
+            className="min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0 flex items-center justify-center p-2 md:p-1 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
@@ -76,7 +77,7 @@ export const ReaderSidebar: React.FC<ReaderSidebarProps> = ({
           <button
             type="button"
             onClick={() => setActiveTab('toc')}
-            className={`flex-1 py-1.5 px-2 rounded-md font-medium transition-colors flex items-center justify-center gap-1.5 cursor-pointer ${
+            className={`flex-1 min-h-[40px] md:min-h-0 py-1.5 px-2 rounded-md font-medium transition-colors flex items-center justify-center gap-1.5 cursor-pointer ${
               activeTab === 'toc'
                 ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-2xs font-semibold'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
@@ -89,7 +90,7 @@ export const ReaderSidebar: React.FC<ReaderSidebarProps> = ({
           <button
             type="button"
             onClick={() => setActiveTab('bookmarks')}
-            className={`flex-1 py-1.5 px-2 rounded-md font-medium transition-colors flex items-center justify-center gap-1.5 cursor-pointer ${
+            className={`flex-1 min-h-[40px] md:min-h-0 py-1.5 px-2 rounded-md font-medium transition-colors flex items-center justify-center gap-1.5 cursor-pointer ${
               activeTab === 'bookmarks'
                 ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-2xs font-semibold'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
@@ -102,7 +103,7 @@ export const ReaderSidebar: React.FC<ReaderSidebarProps> = ({
           <button
             type="button"
             onClick={() => setActiveTab('notes')}
-            className={`flex-1 py-1.5 px-2 rounded-md font-medium transition-colors flex items-center justify-center gap-1.5 cursor-pointer ${
+            className={`flex-1 min-h-[40px] md:min-h-0 py-1.5 px-2 rounded-md font-medium transition-colors flex items-center justify-center gap-1.5 cursor-pointer ${
               activeTab === 'notes'
                 ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-2xs font-semibold'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
@@ -212,10 +213,11 @@ export const ReaderSidebar: React.FC<ReaderSidebarProps> = ({
                     <button
                       type="button"
                       onClick={() => onRemoveBookmark(bm.pageNumber)}
-                      className="text-slate-400 hover:text-rose-600 p-1 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
+                      className="min-w-[40px] min-h-[40px] md:min-w-0 md:min-h-0 flex items-center justify-center text-slate-400 hover:text-rose-600 p-2 md:p-1 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity cursor-pointer"
                       title="Delete bookmark"
+                      aria-label="Delete bookmark"
                     >
-                      <Trash2 className="w-3.5 h-3.5" />
+                      <Trash2 className="w-4 h-4 md:w-3.5 md:h-3.5" />
                     </button>
                   </div>
 
@@ -311,10 +313,11 @@ export const ReaderSidebar: React.FC<ReaderSidebarProps> = ({
                     <button
                       type="button"
                       onClick={() => onDeleteNote(note.id)}
-                      className="text-slate-400 hover:text-rose-600 p-1 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
+                      className="min-w-[40px] min-h-[40px] md:min-w-0 md:min-h-0 flex items-center justify-center text-slate-400 hover:text-rose-600 p-2 md:p-1 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity cursor-pointer"
                       title="Delete note"
+                      aria-label="Delete note"
                     >
-                      <Trash2 className="w-3.5 h-3.5" />
+                      <Trash2 className="w-4 h-4 md:w-3.5 md:h-3.5" />
                     </button>
                   </div>
 

@@ -57,7 +57,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
           aria-orientation="vertical"
           className={`
             absolute ${align === 'right' ? 'right-0' : 'left-0'} mt-2 
-            ${menuWidth} bg-white rounded-none shadow-[6px_6px_0px_#111111] border-3 border-[#111111] 
+            ${menuWidth} max-w-[calc(100vw-1.5rem)] max-h-[70dvh] overflow-y-auto overscroll-contain bg-white rounded-none shadow-[6px_6px_0px_#111111] border-3 border-[#111111] 
             py-1.5 z-40 focus:outline-none animate-in fade-in duration-100
           `}
         >
@@ -77,7 +77,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
                   setIsOpen(false);
                 }}
                 className={`
-                  w-full px-3.5 py-2 text-left text-xs font-bold font-heading uppercase tracking-wide
+                  w-full px-3.5 py-2.5 md:py-2 min-h-[44px] md:min-h-0 text-left text-xs font-bold font-heading uppercase tracking-wide
                   flex items-center gap-2.5 transition-colors cursor-pointer
                   ${
                     item.disabled

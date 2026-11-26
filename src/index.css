@@ -181,3 +181,51 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #F26B32;
 }
+
+/* ========================================================================== */
+/* Mobile-Scoped Ergonomics & Overflow Safeguards (320px - 768px)             */
+/* Desktop (>= 769px) remains completely untouched.                           */
+/* ========================================================================== */
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: clip;
+    max-width: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Prevent iOS Safari automatic zoom on focused form controls */
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+  select,
+  textarea {
+    font-size: max(16px, 1rem) !important;
+  }
+
+  /* Ensure media elements scale cleanly inside narrow viewports */
+  img,
+  video,
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  svg {
+    max-width: 100%;
+  }
+
+  /* Eliminate 300ms tap delay and improve touch responsiveness */
+  a,
+  button,
+  input,
+  select,
+  textarea,
+  [role="button"] {
+    touch-action: manipulation;
+  }
+
+  /* Smooth momentum scrolling on horizontal scroll containers */
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+

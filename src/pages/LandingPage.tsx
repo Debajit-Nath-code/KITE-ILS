@@ -127,7 +127,7 @@ export const LandingPage: React.FC = () => {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <Kicker>Next-Generation University Library Platform</Kicker>
           
-          <DisplayHeading className="mt-4 text-4xl sm:text-6xl lg:text-7xl max-w-4xl mx-auto">
+          <DisplayHeading className="mt-4 text-[clamp(2rem,9.5vw,2.75rem)] sm:text-6xl lg:text-7xl max-w-4xl mx-auto">
             YOUR LIBRARY, WITHOUT THE FRICTION.
           </DisplayHeading>
 
@@ -280,23 +280,23 @@ export const LandingPage: React.FC = () => {
           </div>
 
           {/* Quick CTA Banner */}
-          <div className="mt-14 p-8 bg-[#111111] text-[#F5F0E6] border-4 border-[#111111] shadow-[8px_8px_0px_#FFD83D] flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="mt-14 p-5 sm:p-8 bg-[#111111] text-[#F5F0E6] border-4 border-[#111111] shadow-[6px_6px_0px_#FFD83D] sm:shadow-[8px_8px_0px_#FFD83D] flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="space-y-1 text-center sm:text-left">
-              <h3 className="font-heading text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#FFD83D]">
+              <h3 className="font-heading text-xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#FFD83D] break-words">
                 READY TO EXPLORE THE UNIVERSITY COLLECTION?
               </h3>
               <p className="text-xs sm:text-sm text-[#F5F0E6]/80 font-medium max-w-xl">
                 Search over 84,000 research monographs, check real-time shelf coordinates, or sign in to your patron account.
               </p>
             </div>
-            <div className="flex items-center gap-3 shrink-0">
-              <Link to="/discover">
-                <Button variant="primary" size="md">
+            <div className="flex flex-wrap items-center justify-center gap-3 shrink-0 w-full sm:w-auto">
+              <Link to="/discover" className="w-full sm:w-auto">
+                <Button variant="primary" size="md" className="w-full sm:w-auto">
                   EXPLORE CATALOG
                 </Button>
               </Link>
-              <Link to="/login">
-                <Button variant="secondary" size="md">
+              <Link to="/login" className="w-full sm:w-auto">
+                <Button variant="secondary" size="md" className="w-full sm:w-auto">
                   PATRON SIGN IN
                 </Button>
               </Link>

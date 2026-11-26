@@ -73,7 +73,7 @@ export const ForgotPasswordPage: React.FC = () => {
               <Input
                 type="email"
                 label="University Email"
-                placeholder="alex.chen@kite.edu"
+                placeholder="jensen@jainuniversity.ac.in"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);

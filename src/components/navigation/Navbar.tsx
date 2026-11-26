@@ -133,8 +133,8 @@ export const Navbar: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-40 bg-[#F5F0E6] border-b-4 border-[#111111] transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="h-16 flex items-center justify-between gap-6">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="h-16 flex items-center justify-between gap-2 sm:gap-6">
           {/* ZONE 1: Clean Brand Wordmark */}
           <Link
             to="/"
@@ -177,7 +177,7 @@ export const Navbar: React.FC = () => {
                   trigger={
                     <button
                       type="button"
-                      className="relative p-2 text-[#111111] bg-[#FFFFFF] border-2 border-[#111111] shadow-[3px_3px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-transform cursor-pointer"
+                      className="relative min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0 flex items-center justify-center p-2 text-[#111111] bg-[#FFFFFF] border-2 border-[#111111] shadow-[3px_3px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-transform cursor-pointer"
                       aria-label="Notifications"
                     >
                       <Bell className="w-4 h-4" />
@@ -196,7 +196,7 @@ export const Navbar: React.FC = () => {
                   trigger={
                     <button
                       type="button"
-                      className="flex items-center gap-2 p-1.5 sm:px-3 sm:py-1.5 text-xs font-heading font-bold uppercase tracking-wider text-[#111111] bg-[#FFFFFF] border-2 border-[#111111] shadow-[3px_3px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-transform cursor-pointer"
+                      className="flex items-center justify-center gap-2 min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0 p-1.5 sm:px-3 sm:py-1.5 text-xs font-heading font-bold uppercase tracking-wider text-[#111111] bg-[#FFFFFF] border-2 border-[#111111] shadow-[3px_3px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-transform cursor-pointer"
                       aria-label="User account menu"
                     >
                       <div className={`w-6 h-6 border border-[#111111] ${user?.role === 'librarian' ? 'bg-[#F26B32]' : 'bg-[#24A9C7]'} text-[#FFFFFF] flex items-center justify-center text-[11px] font-bold shrink-0`}>
@@ -228,8 +228,9 @@ export const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={() => setMobileMenuOpen((prev) => !prev)}
-              className="md:hidden p-2 text-[#111111] bg-[#FFFFFF] border-2 border-[#111111] shadow-[2px_2px_0px_#111111] cursor-pointer"
+              className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-[#111111] bg-[#FFFFFF] border-2 border-[#111111] shadow-[2px_2px_0px_#111111] cursor-pointer"
               aria-label="Toggle navigation menu"
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -239,14 +240,14 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t-3 border-[#111111] bg-[#F5F0E6] px-4 pt-3 pb-6 space-y-1 shadow-[0px_4px_0px_#111111]">
+        <div className="md:hidden border-t-3 border-[#111111] bg-[#F5F0E6] px-4 pt-3 pb-6 space-y-1.5 shadow-[0px_4px_0px_#111111] max-h-[calc(100dvh-4.25rem)] overflow-y-auto overscroll-contain">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               onClick={() => setMobileMenuOpen(false)}
               className={({ isActive }) => `
-                block px-3 py-2 text-xs font-heading font-bold uppercase tracking-wider border-2 border-[#111111] mb-1.5 transition-colors
+                flex items-center min-h-[44px] px-3.5 py-2.5 text-xs font-heading font-bold uppercase tracking-wider border-2 border-[#111111] mb-1.5 transition-colors
                 ${
                   isActive
                     ? 'bg-[#FFD83D] text-[#111111] shadow-[2px_2px_0px_#111111]'
@@ -260,12 +261,12 @@ export const Navbar: React.FC = () => {
 
           <div className="pt-3 border-t-2 border-[#111111] mt-2 space-y-2">
             {isAuthenticated ? (
-              <div className="flex items-center justify-between px-3 py-2 text-xs text-[#111111] font-mono bg-[#FFFFFF] border-2 border-[#111111]">
+              <div className="flex items-center justify-between gap-2 px-3 py-2 min-h-[44px] text-xs text-[#111111] font-mono bg-[#FFFFFF] border-2 border-[#111111]">
                 <span className="truncate">{user?.email}</span>
                 <button
                   type="button"
                   onClick={handleSignOut}
-                  className="font-bold text-[#F05A79] hover:underline uppercase ml-2 shrink-0 cursor-pointer"
+                  className="min-h-[36px] px-2 font-bold text-[#F05A79] hover:underline uppercase ml-2 shrink-0 cursor-pointer"
                 >
                   Sign Out
                 </button>

@@ -80,7 +80,7 @@ export const LoginPage: React.FC = () => {
 
             <Input
               label="University Email / Student ID"
-              placeholder="e.g. alex.chen@kite.edu or KIT-2026-4401"
+              placeholder="e.g. jensen@jainuniversity.ac.in or KIT-2026-4401"
               value={identifier}
               onChange={(e) => {
                 setIdentifier(e.target.value);

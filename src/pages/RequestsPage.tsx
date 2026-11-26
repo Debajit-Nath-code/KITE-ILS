@@ -260,7 +260,7 @@ export const RequestsPage: React.FC = () => {
                   onChange={(e) => setAuthor(e.target.value)}
                 />
 
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <Input
                     label="ISBN"
                     placeholder="978-1449373320"
@@ -276,7 +276,7 @@ export const RequestsPage: React.FC = () => {
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <Input
                     label="Course / Subject"
                     placeholder="e.g. CS-452 Distributed Systems"
@@ -291,7 +291,7 @@ export const RequestsPage: React.FC = () => {
                     <select
                       value={department}
                       onChange={(e) => setDepartment(e.target.value)}
-                      className="w-full h-10 px-3 bg-white text-slate-900 text-xs sm:text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500"
+                      className="w-full h-11 sm:h-10 px-3 bg-white text-slate-900 text-base md:text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500"
                     >
                       <option value="Computer Science & Engineering">Computer Science</option>
                       <option value="Physics & Applied Mathematics">Physics</option>
@@ -355,7 +355,7 @@ export const RequestsPage: React.FC = () => {
                   {/* Header Row: Title, Request ID, Date */}
                   <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
                     <div className="space-y-1">
-                      <div className="flex items-center gap-2">
+                      <div className="flex flex-wrap items-center gap-2">
                         <span className="font-mono text-xs font-bold text-sky-900 bg-sky-50 border border-sky-200 px-2 py-0.5 rounded">
                           {req.id}
                         </span>
@@ -396,31 +396,33 @@ export const RequestsPage: React.FC = () => {
                       Status Timeline:
                     </span>
 
-                    <div className="grid grid-cols-5 gap-1.5 text-center font-mono text-[10px]">
-                      {PIPELINE_STAGES.map((stage, idx) => {
-                        const isDone = idx < currentStage;
-                        const isCurrent = idx === currentStage;
+                    <div className="overflow-x-auto pb-1">
+                      <div className="grid grid-cols-5 gap-1.5 text-center font-mono text-[10px] min-w-[360px] sm:min-w-0">
+                        {PIPELINE_STAGES.map((stage, idx) => {
+                          const isDone = idx < currentStage;
+                          const isCurrent = idx === currentStage;
 
-                        return (
-                          <div
-                            key={stage.id}
-                            className={`p-2 rounded border flex flex-col items-center justify-between gap-1 transition-all ${
-                              isCurrent
-                                ? 'bg-amber-50 border-amber-400 text-amber-950 font-bold shadow-2xs'
-                                : isDone
-                                ? 'bg-emerald-50 border-emerald-300 text-emerald-800 font-medium'
-                                : 'bg-slate-50 border-slate-200 text-slate-400'
-                            }`}
-                          >
-                            <span className="w-4 h-4 rounded-full flex items-center justify-center text-[9px] mb-0.5 font-bold">
-                              {isDone ? '✓' : idx + 1}
-                            </span>
-                            <span className="leading-tight truncate w-full text-[9px]">
-                              {stage.label}
-                            </span>
-                          </div>
-                        );
-                      })}
+                          return (
+                            <div
+                              key={stage.id}
+                              className={`p-2 rounded border flex flex-col items-center justify-between gap-1 transition-all ${
+                                isCurrent
+                                  ? 'bg-amber-50 border-amber-400 text-amber-950 font-bold shadow-2xs'
+                                  : isDone
+                                  ? 'bg-emerald-50 border-emerald-300 text-emerald-800 font-medium'
+                                  : 'bg-slate-50 border-slate-200 text-slate-400'
+                              }`}
+                            >
+                              <span className="w-4 h-4 rounded-full flex items-center justify-center text-[9px] mb-0.5 font-bold">
+                                {isDone ? '✓' : idx + 1}
+                              </span>
+                              <span className="leading-tight truncate w-full text-[9px]">
+                                {stage.label}
+                              </span>
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
                   </div>
 

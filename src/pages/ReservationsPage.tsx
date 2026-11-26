@@ -178,7 +178,7 @@ export const ReservationsPage: React.FC = () => {
         </div>
       }
       actions={
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <Button
             variant="secondary"
             size="sm"
@@ -212,22 +212,22 @@ export const ReservationsPage: React.FC = () => {
             ]}
           />
 
-          <div className="flex items-center gap-2">
-            <div className="relative">
+          <div className="flex items-center gap-2 w-full sm:w-auto">
+            <div className="relative flex-1 sm:flex-initial">
               <input
                 type="text"
                 placeholder="Filter by title, token, ID..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="h-8 px-2.5 pl-8 text-xs bg-white border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                className="w-full sm:w-auto h-11 md:h-8 px-2.5 pl-8 text-xs bg-white border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-sky-500"
               />
-              <Search className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2.5 pointer-events-none" />
+              <Search className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
 
             <Button
               variant="ghost"
               size="sm"
-              className="h-8 text-xs text-slate-500 hover:text-slate-900"
+              className="md:h-8 text-xs text-slate-500 hover:text-slate-900"
               onClick={loadReservations}
               title="Refresh holdings from service"
             >
@@ -329,7 +329,7 @@ export const ReservationsPage: React.FC = () => {
 
                     <CardContent className="space-y-4">
                       {/* Prominent Claim Token Card */}
-                      <div className="p-3.5 bg-slate-900 text-white rounded-xl flex items-center justify-between">
+                      <div className="p-3.5 bg-slate-900 text-white rounded-xl flex flex-wrap items-center justify-between gap-2">
                         <div>
                           <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 block">
                             Claim Token
@@ -341,15 +341,16 @@ export const ReservationsPage: React.FC = () => {
                             <button
                               type="button"
                               onClick={(e) => handleCopyClaimToken(res.claimToken, e)}
-                              className="text-slate-400 hover:text-white transition-colors p-1 rounded hover:bg-white/10"
+                              className="min-w-[40px] min-h-[40px] md:min-w-0 md:min-h-0 flex items-center justify-center text-slate-400 hover:text-white transition-colors p-2 md:p-1 rounded hover:bg-white/10"
                               title="Copy Claim Token"
+                              aria-label="Copy Claim Token"
                             >
-                              <Copy className="w-3.5 h-3.5" />
+                              <Copy className="w-4 h-4 md:w-3.5 md:h-3.5" />
                             </button>
                           </div>
                         </div>
 
-                        <div className="text-right">
+                        <div className="sm:text-right">
                           <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 block">
                             Reservation ID
                           </span>
@@ -389,7 +390,7 @@ export const ReservationsPage: React.FC = () => {
                       </div>
 
                       {/* Reserved Date & Expiry */}
-                      <div className="flex items-center justify-between text-xs text-slate-500 pt-1 border-t border-slate-100">
+                      <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500 pt-1 border-t border-slate-100">
                         <span className="flex items-center gap-1">
                           <Calendar className="w-3.5 h-3.5 text-slate-400" />
                           <span>Reserved: {new Date(res.reservedAt).toLocaleDateString()}</span>

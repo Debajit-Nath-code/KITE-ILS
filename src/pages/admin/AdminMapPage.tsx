@@ -296,8 +296,8 @@ export const AdminMapPage: React.FC = () => {
       {/* Library -> Building -> Floor -> Section -> Shelf                      */}
       {/* ===================================================================== */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2 border-b border-slate-200">
-        <div>
-          <div className="flex items-center gap-1.5 text-xs text-slate-500 font-mono mb-1">
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center gap-1.5 text-xs text-slate-500 font-mono mb-1">
             <span className="font-semibold text-sky-800">{selectedLibrary}</span>
             <span>→</span>
             <span className="text-slate-700">{selectedBuilding}</span>
@@ -319,7 +319,7 @@ export const AdminMapPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2 shrink-0">
           <Button
             variant="outline"
             size="sm"

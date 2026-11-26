@@ -12,7 +12,7 @@ export const RegisterPage: React.FC = () => {
   const [fullName, setFullName] = useState('');
   const [universityId, setUniversityId] = useState('');
   const [email, setEmail] = useState('');
-  const [department, setDepartment] = useState('Department of Computer Science');
+  const [department, setDepartment] = useState('Computer Science AIML');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   
@@ -91,6 +91,7 @@ export const RegisterPage: React.FC = () => {
   };
 
   const departmentsList = [
+    { label: 'Computer Science AIML', value: 'Computer Science AIML' },
     { label: 'Department of Computer Science', value: 'Department of Computer Science' },
     { label: 'School of Architecture & Urban Design', value: 'School of Architecture & Urban Design' },
     { label: 'Department of Physics & Astronomy', value: 'Department of Physics & Astronomy' },
@@ -120,7 +121,7 @@ export const RegisterPage: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Input
                 label="Full Name *"
-                placeholder="e.g. Alex Chen"
+                placeholder="e.g. Jensen"
                 value={fullName}
                 onChange={(e) => {
                   setFullName(e.target.value);
@@ -149,7 +150,7 @@ export const RegisterPage: React.FC = () => {
               <Input
                 type="email"
                 label="University Email *"
-                placeholder="alex.chen@kite.edu"
+                placeholder="jensen@jainuniversity.ac.in"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);

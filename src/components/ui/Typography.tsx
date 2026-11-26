@@ -16,7 +16,7 @@ export const DisplayHeading: React.FC<BaseTypographyProps> = ({
   return (
     <Component 
       id={id}
-      className={`font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-[#111111] leading-[1.05] [text-wrap:balance] ${className}`}
+      className={`font-heading text-[clamp(1.625rem,7.2vw,2.25rem)] sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-[#111111] leading-[1.05] [text-wrap:balance] break-words ${className}`}
     >
       {children}
     </Component>
@@ -32,7 +32,7 @@ export const PageHeading: React.FC<BaseTypographyProps> = ({
   return (
     <Component 
       id={id}
-      className={`font-heading text-2xl sm:text-3xl font-bold uppercase tracking-tight text-[#111111] leading-tight [text-wrap:balance] ${className}`}
+      className={`font-heading text-[clamp(1.375rem,5.8vw,1.875rem)] sm:text-3xl font-bold uppercase tracking-tight text-[#111111] leading-tight [text-wrap:balance] break-words ${className}`}
     >
       {children}
     </Component>

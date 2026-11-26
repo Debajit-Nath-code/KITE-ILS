@@ -48,14 +48,15 @@ export const ReaderTopBar: React.FC<ReaderTopBarProps> = ({
   };
 
   return (
-    <header className="h-14 border-b border-inherit px-3 sm:px-6 flex items-center justify-between select-none shrink-0 transition-colors z-30">
+    <header className="h-14 border-b border-inherit px-2 sm:px-6 flex items-center justify-between select-none shrink-0 transition-colors z-30">
       {/* Left: Sidebar Toggle & Exit */}
-      <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+      <div className="flex items-center gap-1 sm:gap-3 min-w-0">
         <button
           type="button"
           onClick={onToggleSidebar}
-          className="p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors cursor-pointer text-inherit"
+          className="min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0 flex items-center justify-center p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors cursor-pointer text-inherit"
           title={isSidebarOpen ? 'Close Table of Contents' : 'Open Table of Contents'}
+          aria-label={isSidebarOpen ? 'Close Table of Contents' : 'Open Table of Contents'}
         >
           {isSidebarOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
         </button>
@@ -63,9 +64,10 @@ export const ReaderTopBar: React.FC<ReaderTopBarProps> = ({
         <button
           type="button"
           onClick={onExit}
-          className="flex items-center gap-1.5 text-xs font-medium py-1.5 px-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors cursor-pointer text-inherit"
+          className="min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0 flex items-center justify-center gap-1.5 text-xs font-medium py-1.5 px-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors cursor-pointer text-inherit"
+          aria-label="Exit Reader"
         >
-          <ArrowLeft className="w-3.5 h-3.5" />
+          <ArrowLeft className="w-4 h-4 sm:w-3.5 sm:h-3.5" />
           <span className="hidden sm:inline">Exit Reader</span>
         </button>
 
@@ -76,7 +78,7 @@ export const ReaderTopBar: React.FC<ReaderTopBarProps> = ({
       </div>
 
       {/* Center: Current Chapter Title */}
-      <div className="flex-1 text-center px-4 min-w-0">
+      <div className="flex-1 text-center px-2 sm:px-4 min-w-0">
         {!isSearchActive ? (
           <div className="truncate">
             <span className="text-xs sm:text-sm font-serif font-semibold tracking-tight block truncate">
@@ -84,14 +86,14 @@ export const ReaderTopBar: React.FC<ReaderTopBarProps> = ({
             </span>
           </div>
         ) : (
-          <form onSubmit={handleSearchSubmit} className="max-w-sm mx-auto flex items-center gap-2">
+          <form onSubmit={handleSearchSubmit} className="max-w-sm mx-auto flex items-center gap-1.5 sm:gap-2">
             <input
               type="text"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
               placeholder="Search terms, theorems, code..."
               autoFocus
-              className="w-full h-8 px-2.5 text-xs rounded-md bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/10 text-inherit focus:outline-none focus:ring-1 focus:ring-sky-500"
+              className="w-full h-9 sm:h-8 px-2.5 text-base md:text-xs rounded-md bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/10 text-inherit focus:outline-none focus:ring-1 focus:ring-sky-500"
             />
             <button
               type="button"
@@ -99,7 +101,7 @@ export const ReaderTopBar: React.FC<ReaderTopBarProps> = ({
                 setIsSearchActive(false);
                 setSearchInput('');
               }}
-              className="text-xs opacity-60 hover:opacity-100 p-1"
+              className="min-h-[44px] md:min-h-0 text-xs opacity-60 hover:opacity-100 px-2 py-1 shrink-0 cursor-pointer"
             >
               Cancel
             </button>
@@ -108,17 +110,18 @@ export const ReaderTopBar: React.FC<ReaderTopBarProps> = ({
       </div>
 
       {/* Right: Search, Bookmark, Settings */}
-      <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+      <div className="flex items-center gap-0.5 sm:gap-2 shrink-0">
         {/* In-Book Search Toggle */}
         <button
           type="button"
           onClick={() => setIsSearchActive((prev) => !prev)}
-          className={`p-2 rounded-lg transition-colors cursor-pointer ${
+          className={`min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0 flex items-center justify-center p-2 rounded-lg transition-colors cursor-pointer ${
             isSearchActive
               ? 'bg-sky-500/20 text-sky-600 dark:text-sky-300'
               : 'hover:bg-black/5 dark:hover:bg-white/10 text-inherit'
           }`}
           title="Search in Monograph"
+          aria-label="Search in Monograph"
         >
           <Search className="w-4 h-4" />
         </button>
@@ -127,12 +130,13 @@ export const ReaderTopBar: React.FC<ReaderTopBarProps> = ({
         <button
           type="button"
           onClick={onToggleBookmark}
-          className={`p-2 rounded-lg transition-colors cursor-pointer ${
+          className={`min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0 flex items-center justify-center p-2 rounded-lg transition-colors cursor-pointer ${
             isBookmarked
               ? 'text-sky-600 dark:text-sky-400 bg-sky-500/15'
               : 'hover:bg-black/5 dark:hover:bg-white/10 text-inherit opacity-75 hover:opacity-100'
           }`}
           title={isBookmarked ? 'Remove Bookmark from this page' : 'Bookmark this page'}
+          aria-label={isBookmarked ? 'Remove Bookmark from this page' : 'Bookmark this page'}
         >
           {isBookmarked ? (
             <BookmarkCheck className="w-4 h-4 fill-sky-600/30" />
@@ -145,8 +149,9 @@ export const ReaderTopBar: React.FC<ReaderTopBarProps> = ({
         <button
           type="button"
           onClick={onOpenSettings}
-          className="p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors cursor-pointer text-inherit"
+          className="min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0 flex items-center justify-center p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors cursor-pointer text-inherit"
           title="Reader Display Settings (Theme, Font, Spacing)"
+          aria-label="Reader Display Settings"
         >
           <Settings className="w-4 h-4" />
         </button>

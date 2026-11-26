@@ -268,10 +268,10 @@ export const BookDetailsPage: React.FC = () => {
     <div className="flex-1 bg-slate-50 pb-16">
       {/* Top Breadcrumb Bar */}
       <section className="bg-white border-b border-slate-200/80 py-3.5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-xs">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-2 text-xs">
           <Link
             to="/discover"
-            className="inline-flex items-center gap-1.5 font-medium text-slate-600 hover:text-slate-900 transition-colors"
+            className="inline-flex items-center gap-1.5 min-h-[36px] md:min-h-0 font-medium text-slate-600 hover:text-slate-900 transition-colors"
           >
             <ArrowLeft className="w-4 h-4 text-slate-400" />
             <span>Back to Discovery Catalog</span>
@@ -376,7 +376,7 @@ export const BookDetailsPage: React.FC = () => {
           <div className="lg:col-span-6 space-y-6">
             {/* Title & Primary Attribution */}
             <div>
-              <div className="flex items-center gap-2 mb-2">
+              <div className="flex flex-wrap items-center gap-2 mb-2">
                 <span className="text-xs font-semibold uppercase tracking-wider text-sky-700">
                   {book.department}
                 </span>
@@ -494,7 +494,7 @@ export const BookDetailsPage: React.FC = () => {
                 className="w-full p-5 flex items-center justify-between text-left hover:bg-slate-50/50 transition-colors cursor-pointer"
               >
                 <div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <h3 className="font-serif text-base font-semibold text-slate-900">
                       Physical Copy Inventory ({copies.length} Copies)
                     </h3>
@@ -688,7 +688,7 @@ export const BookDetailsPage: React.FC = () => {
             </Card>
 
             {/* Quick Share / Citation Card */}
-            <Card className="p-4 bg-white text-xs flex items-center justify-between">
+            <Card className="p-4 bg-white text-xs flex flex-wrap items-center justify-between gap-2">
               <span className="text-slate-500">Need academic citation?</span>
               <Button
                 variant="ghost"
@@ -711,7 +711,7 @@ export const BookDetailsPage: React.FC = () => {
         {/* RELATED RESOURCES SECTION (4 Books Based on Category/Dept)       */}
         {/* ================================================================ */}
         <section className="mt-16 pt-10 border-t border-slate-200/80">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
             <div>
               <Kicker className="mb-0">Curated Library Recommendations</Kicker>
               <SectionHeading className="mt-1">
@@ -721,7 +721,7 @@ export const BookDetailsPage: React.FC = () => {
                 Scholarly works frequently cross-referenced in {book.department} and {book.category}.
               </p>
             </div>
-            <Link to="/discover" className="text-xs font-medium text-sky-700 hover:text-sky-900">
+            <Link to="/discover" className="text-xs font-medium text-sky-700 hover:text-sky-900 shrink-0">
               Explore Complete Catalog →
             </Link>
           </div>
@@ -813,7 +813,7 @@ export const BookDetailsPage: React.FC = () => {
           description={`${book.author} · University Institutional e-Book Edition`}
           maxWidth="lg"
           footer={
-            <div className="flex items-center justify-between w-full">
+            <div className="flex flex-wrap items-center justify-between gap-2 w-full">
               <span className="text-xs text-slate-500 font-mono">
                 Reading Chapter 1 · Synced with Kite Reader
               </span>
@@ -828,7 +828,7 @@ export const BookDetailsPage: React.FC = () => {
           }
         >
           <div className="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed font-serif">
-            <div className="p-3 bg-sky-50 border border-sky-200/80 rounded-lg text-xs font-sans text-sky-950 flex items-center justify-between">
+            <div className="p-3 bg-sky-50 border border-sky-200/80 rounded-lg text-xs font-sans text-sky-950 flex flex-wrap items-center justify-between gap-2">
               <span>Institutional access active for {book.title}</span>
               <span className="font-mono text-sky-800 font-semibold">Page 1 / 420</span>
             </div>

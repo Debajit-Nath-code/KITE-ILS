@@ -25,11 +25,11 @@ export const AppLayout: React.FC = () => {
                 <KiteLogo size={24} showText={true} />
               </div>
               <p className="text-[#F5F0E6]/70 leading-relaxed text-xs">
-                Kite Integrated Library System is the next-generation digital catalog and spatial wayfinding platform for university research collections.
+                Kite Integrated Library System is the next-generation digital catalog and spatial wayfinding platform for JAIN Deemed to be University research collections.
               </p>
               <div className="flex items-center gap-1.5 text-[11px] text-[#FFD83D] font-mono">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#FFD83D]" />
-                <span>University Library System · Release 2026.1</span>
+                <span>JAIN Deemed to be University · Release 2026.1</span>
               </div>
             </div>
 
@@ -39,21 +39,21 @@ export const AppLayout: React.FC = () => {
                 Campus Branches
               </h4>
               <ul className="space-y-1.5 text-xs">
+                <li className="flex items-center justify-between text-[#F5F0E6] font-semibold border-b border-[#F5F0E6]/10 pb-1">
+                  <span>Computer Science AIML</span>
+                  <span className="font-mono text-[#FFD83D] text-[11px] font-bold">Main · 24 / 7</span>
+                </li>
                 <li className="flex items-center justify-between text-[#F5F0E6]/80 border-b border-[#F5F0E6]/10 pb-1">
                   <span>Science & Engineering</span>
-                  <span className="font-mono text-[#FFD83D] text-[11px] font-bold">24 / 7 Access</span>
+                  <span className="font-mono text-[#F5F0E6]/60 text-[11px]">07:30 – 23:00</span>
                 </li>
                 <li className="flex items-center justify-between text-[#F5F0E6]/80 border-b border-[#F5F0E6]/10 pb-1">
                   <span>Humanities & Social Sciences</span>
-                  <span className="font-mono text-[#F5F0E6]/60 text-[11px]">07:30 – 23:00</span>
+                  <span className="font-mono text-[#F5F0E6]/60 text-[11px]">08:00 – 21:00</span>
                 </li>
                 <li className="flex items-center justify-between text-[#F5F0E6]/80 border-b border-[#F5F0E6]/10 pb-1">
                   <span>Fine Arts & Architecture</span>
                   <span className="font-mono text-[#F5F0E6]/60 text-[11px]">08:00 – 21:00</span>
-                </li>
-                <li className="flex items-center justify-between text-[#F5F0E6]/80 border-b border-[#F5F0E6]/10 pb-1">
-                  <span>Medical Archive</span>
-                  <span className="font-mono text-[#F5F0E6]/60 text-[11px]">06:00 – 00:00</span>
                 </li>
               </ul>
             </div>
@@ -65,22 +65,22 @@ export const AppLayout: React.FC = () => {
               </h4>
               <ul className="space-y-2 text-xs font-bold uppercase tracking-wide">
                 <li>
-                  <Link to="/requests" className="hover:text-[#FFD83D] hover:underline transition-colors block">
+                  <Link to="/requests" className="hover:text-[#FFD83D] hover:underline transition-colors flex items-center min-h-[36px] md:min-h-0">
                     → Monograph Acquisition Requests
                   </Link>
                 </li>
                 <li>
-                  <Link to="/reservations" className="hover:text-[#FFD83D] hover:underline transition-colors block">
+                  <Link to="/reservations" className="hover:text-[#FFD83D] hover:underline transition-colors flex items-center min-h-[36px] md:min-h-0">
                     → Automated Locker Pickup
                   </Link>
                 </li>
                 <li>
-                  <Link to="/navigate" className="hover:text-[#FFD83D] hover:underline transition-colors block">
+                  <Link to="/navigate" className="hover:text-[#FFD83D] hover:underline transition-colors flex items-center min-h-[36px] md:min-h-0">
                     → Spatial Stacks Wayfinding
                   </Link>
                 </li>
                 <li>
-                  <Link to="/design-system" className="hover:text-[#FFD83D] hover:underline transition-colors block">
+                  <Link to="/design-system" className="hover:text-[#FFD83D] hover:underline transition-colors flex items-center min-h-[36px] md:min-h-0">
                     → Design System Component Catalog
                   </Link>
                 </li>
@@ -98,21 +98,21 @@ export const AppLayout: React.FC = () => {
                   <span>All Stacks Operational</span>
                 </div>
                 <p className="text-[11px] text-[#F5F0E6]/70 leading-normal font-sans">
-                  Circulation and automated book delivery lockers are operating at normal university service hours.
+                  Circulation and automated book delivery lockers are operating at normal JAIN Deemed to be University service hours.
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="pt-6 border-t border-[#F5F0E6]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#F5F0E6]/60">
+          <div className="pt-6 border-t border-[#F5F0E6]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#F5F0E6]/60 text-center sm:text-left">
             <div>
-              © 2026 Kite ILS · University Library Council. Engineered with Neo-Brutalist Architecture.
+              © 2026 Kite ILS · JAIN Deemed to be University. Engineered with Neo-Brutalist Architecture.
             </div>
-            <div className="flex items-center gap-4 font-mono">
+            <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-4 gap-y-2 font-mono">
               <span className="hover:text-[#FFD83D] cursor-pointer">Catalog Terms</span>
-              <span>·</span>
+              <span className="hidden sm:inline">·</span>
               <span className="hover:text-[#FFD83D] cursor-pointer">Accessibility (WCAG AA)</span>
-              <span>·</span>
+              <span className="hidden sm:inline">·</span>
               <span className="hover:text-[#FFD83D] cursor-pointer">Interlibrary Loan Protocol</span>
             </div>
           </div>

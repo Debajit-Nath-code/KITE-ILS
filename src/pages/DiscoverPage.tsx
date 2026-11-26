@@ -332,7 +332,7 @@ export const DiscoverPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setQuery('')}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-slate-600 rounded-md transition-colors"
+                  className="absolute right-2 sm:right-3.5 top-1/2 -translate-y-1/2 min-w-[40px] min-h-[40px] sm:min-w-0 sm:min-h-0 flex items-center justify-center p-1 text-slate-400 hover:text-slate-600 rounded-md transition-colors"
                   aria-label="Clear search"
                 >
                   <X className="w-4 h-4" />
@@ -378,7 +378,7 @@ export const DiscoverPage: React.FC = () => {
                     setCategory('All');
                   }}
                   className={`
-                    px-3 py-1 rounded-full whitespace-nowrap transition-colors text-xs font-medium cursor-pointer
+                    min-h-[36px] md:min-h-0 px-3 py-1.5 md:py-1 rounded-full whitespace-nowrap transition-colors text-xs font-medium cursor-pointer
                     ${
                       isActive
                         ? 'bg-slate-900 text-white font-semibold shadow-2xs'
@@ -702,7 +702,7 @@ export const DiscoverPage: React.FC = () => {
 
                       {/* Physical Location Strip */}
                       <div className="pt-3 border-t-2 border-[#111111] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-[#111111] font-medium">
-                        <div className="flex items-center gap-2">
+                        <div className="flex flex-wrap items-center gap-2 min-w-0">
                           <MapPin className="w-4 h-4 text-[#F26B32] shrink-0" />
                           <span className="font-bold">
                             {book.location.library}
@@ -712,7 +712,7 @@ export const DiscoverPage: React.FC = () => {
                         </div>
 
                         {/* 3 Explicit Action Buttons */}
-                        <div className="flex items-center gap-2 shrink-0">
+                        <div className="flex flex-wrap items-center gap-2 shrink-0">
                           <Link to={`/book/${book.id}`}>
                             <Button
                               variant="outline"
@@ -771,12 +771,12 @@ export const DiscoverPage: React.FC = () => {
           description={`${selectedBookForDetails.author} · ${selectedBookForDetails.publisher} (${selectedBookForDetails.publicationYear})`}
           maxWidth="lg"
           footer={
-            <div className="flex items-center justify-between w-full">
+            <div className="flex flex-wrap items-center justify-between gap-2.5 w-full">
               <AvailabilityBadge
                 availableCopies={selectedBookForDetails.availableCopies}
                 totalCopies={selectedBookForDetails.totalCopies}
               />
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <Button
                   variant="outline"
                   size="sm"
@@ -914,7 +914,7 @@ export const DiscoverPage: React.FC = () => {
             onClick={() => setMobileFilterDrawerOpen(false)}
             aria-hidden="true"
           />
-          <div className="fixed inset-y-0 right-0 max-w-xs w-full bg-white p-6 shadow-2xl overflow-y-auto space-y-6">
+          <div className="fixed inset-y-0 right-0 max-w-xs w-full h-[100dvh] bg-white p-5 sm:p-6 shadow-2xl overflow-y-auto overscroll-contain space-y-6">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <span className="font-serif text-lg font-medium text-slate-900">
                 Filters & Facets
@@ -936,7 +936,7 @@ export const DiscoverPage: React.FC = () => {
               <select
                 value={department}
                 onChange={(e) => setDepartment(e.target.value)}
-                className="w-full h-10 px-3 bg-white text-slate-900 text-xs border border-slate-200 rounded-lg"
+                className="w-full h-11 px-3 bg-white text-slate-900 text-base md:text-xs border border-slate-200 rounded-lg"
               >
                 <option value="All">All Departments</option>
                 {facets?.departments.map((d) => (
@@ -952,7 +952,7 @@ export const DiscoverPage: React.FC = () => {
               <label className="block text-xs font-semibold text-slate-900 uppercase tracking-wider mb-2">
                 Availability
               </label>
-              <div className="space-y-1">
+              <div className="space-y-1.5">
                 {[
                   { id: 'all', label: 'All Catalog Records' },
                   { id: 'available', label: '🟢 Available (3+)' },
@@ -963,8 +963,8 @@ export const DiscoverPage: React.FC = () => {
                     key={item.id}
                     type="button"
                     onClick={() => setAvailability(item.id as AvailabilityFilter)}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-xs ${
-                      availability === item.id ? 'bg-slate-900 text-white font-medium' : 'text-slate-700'
+                    className={`w-full min-h-[44px] text-left px-3 py-2.5 rounded-lg text-xs cursor-pointer ${
+                      availability === item.id ? 'bg-slate-900 text-white font-medium' : 'text-slate-700 hover:bg-slate-100'
                     }`}
                   >
                     {item.label}
